@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HANDBOOK PENGENDALIAN GULMA DI PERKEBUNAN KELAPA SAWIT - EVOLUTION INTER 12 L</title>
+  <style>
+    :root {
+      --hijau-tua: #1f4d2e;
+      --hijau: #2f9c5d;
+      --hijau-muda: #f1f8f4;
+      --kuning: #fff3cd;
+      --merah: #f8d7da;
+      --biru: #e8f4fd;
+      --oranye: #fff4e5;
+      --abu: #f7f7f7;
+      --hitam: #1f1f1f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #dfe7df;
+      color: var(--hitam);
+      line-height: 1.6;
+    }
+
+    header {
+      background: radial-gradient(circle at top, #3fb984, var(--hijau-tua));
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cpath d='M80 10c-10 30-40 40-40 70 0 25 18 40 40 40s40-15 40-40c0-30-30-40-40-70z' fill='rgba(255,255,255,0.08)'/%3E%3C/svg%3E") repeat;
+      opacity: 0.4;
+    }
+
+    header .content {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    header h1 {
+      font-size: clamp(26px, 4vw, 56px);
+      text-transform: uppercase;
+      letter-spacing: 6px;
+    }
+
+    header h2 {
+      font-size: clamp(16px, 2vw, 30px);
+      font-weight: 500;
+    }
+
+    header .tagline {
+      margin-top: 12px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    header .tag {
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      padding: 8px 18px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: clamp(10px, 1vw, 14px);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(31, 77, 46, 0.98);
+      backdrop-filter: blur(6px);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.12);
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      list-style: none;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 10px 16px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: clamp(12px, 1vw, 15px);
+      padding: 8px 14px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    main {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 30px 16px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .poster {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 40px 60px -40px rgba(31, 77, 46, 0.9);
+      overflow: hidden;
+      border: 1px solid rgba(47, 156, 93, 0.18);
+    }
+
+    .poster-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 26px clamp(18px, 6vw, 70px);
+      background: linear-gradient(90deg, var(--hijau-tua) 0%, var(--hijau) 100%);
+      color: #fff;
+    }
+
+    .poster-header .title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .poster-header .kicker {
+      text-transform: uppercase;
+      letter-spacing: 10px;
+      font-size: clamp(10px, 1vw, 14px);
+      opacity: 0.8;
+    }
+
+    .poster-header h2 {
+      font-size: clamp(22px, 4vw, 44px);
+      text-transform: uppercase;
+    }
+
+    .poster-header .subtitle {
+      font-size: clamp(14px, 1.6vw, 18px);
+    }
+
+    .poster-body {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: clamp(16px, 4vw, 40px);
+      padding: clamp(18px, 6vw, 70px);
+    }
+
+    .span-12 {
+      grid-column: 1 / -1;
+    }
+
+    .span-8 {
+      grid-column: span 8;
+    }
+
+    .span-6 {
+      grid-column: span 6;
+    }
+
+    .span-4 {
+      grid-column: span 4;
+    }
+
+    .span-3 {
+      grid-column: span 3;
+    }
+
+    @media (max-width: 1080px) {
+
+      .span-8,
+      .span-6,
+      .span-4,
+      .span-3 {
+        grid-column: 1 / -1;
+      }
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid rgba(31, 77, 46, 0.12);
+      box-shadow: 0 30px 60px -40px rgba(31, 77, 46, 0.8);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 26px;
+      background: var(--hijau-muda);
+      border-bottom: 1px solid rgba(47, 156, 93, 0.24);
+    }
+
+    .card-header h3 {
+      font-size: clamp(18px, 2vw, 26px);
+      color: var(--hijau-tua);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding: clamp(18px, 4vw, 34px);
+    }
+
+    .lead {
+      font-size: clamp(16px, 1.8vw, 20px);
+    }
+
+    .grid-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .pill {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 16px 20px;
+      border-radius: 14px;
+      border: 1px solid rgba(31, 77, 46, 0.16);
+      background: linear-gradient(180deg, #fff 0%, var(--abu) 100%);
+    }
+
+    .pill strong {
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      font-size: 12px;
+      color: var(--hijau-tua);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(31, 77, 46, 0.16);
+    }
+
+    thead {
+      background: var(--hijau-tua);
+      color: #fff;
+    }
+
+    th,
+    td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid rgba(31, 77, 46, 0.1);
+      vertical-align: top;
+    }
+
+    tbody tr:nth-child(even) {
+      background: rgba(241, 248, 244, 0.8);
+    }
+
+    .note {
+      border-radius: 14px;
+      padding: 18px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border: 1px solid rgba(31, 77, 46, 0.18);
+      background: var(--kuning);
+    }
+
+    .note.danger {
+      background: var(--merah);
+    }
+
+    .note.info {
+      background: var(--biru);
+    }
+
+    .note.warning {
+      background: var(--oranye);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: clamp(16px, 4vw, 30px);
+      align-items: start;
+    }
+
+    .illustration {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      text-align: center;
+    }
+
+    .illustration svg {
+      width: min(320px, 80%);
+      height: auto;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(31, 77, 46, 0.2);
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    footer {
+      text-align: center;
+      padding: 26px 16px 40px;
+      color: rgba(31, 77, 46, 0.8);
+    }
+
+    @media print {
+      nav {
+        display: none;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .poster {
+        box-shadow: none;
+        border: 1px solid rgba(31, 77, 46, 0.4);
+        break-inside: avoid;
+      }
+
+      header {
+        background: var(--hijau-tua);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="content">
+      <div class="tagline">
+        <span class="tag">BENAR BAHAN</span>
+        <span class="tag">BENAR DOSIS</span>
+        <span class="tag">BENAR CARA</span>
+      </div>
+      <h1>HANDBOOK PENGENDALIAN GULMA</h1>
+      <h2>DI PERKEBUNAN KELAPA SAWIT</h2>
+      <div class="tagline">
+        <span class="tag">KNAPSAK EVOLUTION INTER 12 L</span>
+        <span class="tag">PRIMA UP | META PRIMA | KENLON</span>
+        <span class="tag">SPRAY FACTOR - NOZZLE - KALIBRASI</span>
+      </div>
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#cover">Cover & Tujuan</a></li>
+      <li><a href="#knapsak">1. Evolution Inter 12 L</a></li>
+      <li><a href="#kalibrasi">2. Kalibrasi, SF & Nozzle</a></li>
+      <li><a href="#herbisida">3. Herbisida</a></li>
+      <li><a href="#gulma-umum">4. Gulma Umum</a></li>
+      <li><a href="#cissus">5. Cissus repens Lam.</a></li>
+      <li><a href="#perawatan">6. Pembersihan & Perawatan</a></li>
+      <li><a href="#apd">7. APD & Keselamatan</a></li>
+      <li><a href="#rangkuman">8. Rangkuman Cepat</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section class="poster" id="cover">
+      <div class="poster-header">
+        <div class="title-group">
+          <span class="kicker">PANDUAN PRAKTIS LAPANGAN</span>
+          <h2>COVER & TUJUAN</h2>
+          <p class="subtitle">Untuk Penyemprot, Mandor, Kerani Semprot & Asisten Kebun</p>
+        </div>
+      </div>
+      <div class="poster-body">
+        <div class="span-8 card">
+          <div class="card-header">
+            <h3>TUJUAN</h3>
+          </div>
+          <div class="card-body">
+            <p class="lead">Handbook ini bertujuan untuk menyeragamkan cara pengendalian gulma dengan herbisida kimia di kebun kelapa sawit, menyesuaikannya dengan <strong>volume semprot, jenis nozzle, Spray Factor (SF)</strong> serta penggunaan <strong>Knapasak Evolution Inter 12 L</strong>.</p>
+            <div class="grid-list">
+              <article class="pill">
+                <strong>PRAKTIS</strong>
+                <p>Ringkas, bisa dibaca sekilas sebelum turun semprot.</p>
+              </article>
+              <article class="pill">
+                <strong>TEPAT DOSIS</strong>
+                <p>Disesuaikan per tangki 12 L berdasarkan SF hasil kalibrasi.</p>
+              </article>
+              <article class="pill">
+                <strong>AMAT & MAINTENANCE</strong>
+                <p>Menjaga umur pakai kep, mencegah sumbatan & kebocoran.</p>
+              </article>
+              <article class="pill">
+                <strong>FOCUS KHUSUS</strong>
+                <p>Pembahasan tuntas <em>Cissus repens</em> Lam. yang kerap menyelimuti pokok sawit.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="span-4 card">
+          <div class="card-header">
+            <h3>BAHAN YANG DIGUNAKAN</h3>
+          </div>
+          <div class="card-body">
+            <div class="grid-list">
+              <article class="pill">
+                <strong>PRIMA UP</strong>
+                <p>Bahan Aktif : <strong>Glifosat (Isopropilamina garam)</strong></p>
+                <p>Golongan : Sistemik, kontak + translocated</p>
+              </article>
+              <article class="pill">
+                <strong>META PRIMA</strong>
+                <p>Bahan Aktif : <strong>Metsulfuron Methyl</strong></p>
+                <p>Golongan : ALS Inhibitor, sistemik</p>
+              </article>
+              <article class="pill">
+                <strong>KENLON</strong>
+                <p>Bahan Aktif : <strong>Triclopyr</strong></p>
+                <p>Golongan : Auxin Mimic, sangat baik untuk gulma berkayu & merambat</p>
+              </article>
+            </div>
+            <div class="note">
+              <strong>PRINSIP UTAMA :</strong>
+              <p>Kenali Gulma -> Pilih Racun -> Pilih Nozzle -> Hitung Dosis Per Tangki -> Semprot Tepat Sasaran -> Rawat Peralatan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="poster" id="knapsak">
+      <div class="poster-header">
+        <div class="title-group">
+          <span class="kicker">BAGIAN 1</span>
+          <h2>KNAPSACK EVOLUTION INTER 12 L</h2>
+          <p class="subtitle">Spesifikasi, Fungsi, Sparepart & Pemeriksaan</p>
+        </div>
+      </div>
+      <div class="poster-body">
+        <div class="span-6 card">
+          <div class="card-header">
+            <h3>SPESIFIKASI UMUM</h3>
+          </div>
+          <div class="card-body">
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Spesifikasi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Tipe</td>
+                  <td>Knapsack / Knapasak (Pompa Tekan Tangan/Lever)</td>
+                </tr>
+                <tr>
+                  <td>Merk/Tipe</td>
+                  <td><strong>Evolution Inter 12 L</strong></td>
+                </tr>
+                <tr>
+                  <td>Kapasitas Tangki</td>
+                  <td>12 Liter (Plastik UV Resistant)</td>
+                </tr>
+                <tr>
+                  <td>Sistem Pompa</td>
+                  <td>Piston/diaphragm type (sesuai unit lapangan)</td>
+                </tr>
+                <tr>
+                  <td>Selang Tekan</td>
+                  <td>Reinforced PVC / Rubber Hose (Tahan herbisida)</td>
+                </tr>
+                <tr>
+                  <td>Lengan Semprot</td>
+                  <td>Alumunium / Fiber dengan kunci grip</td>
+                </tr>
+                <tr>
+                  <td>Filter/Saringan</td>
+                  <td>Filter dalam tangki + filter nozzle holder</td>
+                </tr>
+                <tr>
+                  <td>Tekanan Kerja Ideal</td>
+                  <td>Stabil, cukup untuk nozzle yang digunakan (hindari over-pumping berlebihan)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="span-6 card">
+          <div class="card-header">
+            <h3>ILUSTRASI FUNGSI BAGIAN KEP</h3>
+          </div>
+          <div class="card-body">
+            <div class="illustration">
+              <svg viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
+                <rect width="420" height="320" rx="16" fill="#f7fbf9" />
+                <rect x="150" y="30" width="90" height="150" rx="14" fill="#d9f3e6" stroke="#2f9c5d" stroke-width="4" />
+                <rect x="150" y="30" width="90" height="26" rx="10" fill="#b7e7d0" />
+                <rect x="165" y="70" width="60" height="90" rx="10" fill="#f1fff8" stroke="#2f9c5d" stroke-opacity="0.4" />
+                <line x1="195" y1="180" x2="195" y2="210" stroke="#1f4d2e" stroke-width="10" stroke-linecap="round" />
+                <rect x="185" y="210" width="20" height="26" rx="6" fill="#c9c9c9" stroke="#6b6b6b" />
+                <line x1="195" y1="236" x2="195" y2="258" stroke="#6b6b6b" stroke-width="12" stroke-linecap="round" />
+                <rect x="175" y="258" width="40" height="10" rx="5" fill="#9f9f9f" />
+                <line x1="240" y1="145" x2="300" y2="155" stroke="#1f4d2e" stroke-width="8" stroke-linecap="round" />
+                <line x1="300" y1="155" x2="340" y2="200" stroke="#1f4d2e" stroke-width="8" stroke-linecap="round" />
+                <circle cx="346" cy="206" r="10" fill="#bfbfbf" stroke="#6b6b6b" stroke-width="4" />
+                <text x="90" y="60" font-size="12" fill="#1f4d2e">TANGKI 12 L</text>
+                <text x="70" y="110" font-size="12" fill="#1f4d2e">FILTER DALAM TANGKI</text>
+                <text x="70" y="225" font-size="12" fill="#1f4d2e">POMPA LEVER</text>
+                <text x="290" y="135" font-size="12" fill="#1f4d2e">SELANG TEKAN</text>
+                <text x="330" y="235" font-size="12" fill="#1f4d2e">LENGAN + NOZZLE HOLDER</text>
+              </svg>
+              <div class="legend">
+                <div class="legend-item">
+                  <span class="dot" style="background:#2f9c5d"></span>
+                  <span>Wadah Larutan</span>
+                </div>
+                <div class="legend-item">
+                  <span class="dot" style="background:#9f9f9f"></span>
+                  <span>Pompa & Saluran Tekan</span>
+                </div>
+                <div class="legend-item">
+                  <span class="dot" style="background:#bfbfbf"></span>
+                  <span>Sasaran Penyemprotan</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="span-12 card">
+          <div class="card-header">
+            <h3>DAFTAR SPAREPART & TITIK PEMERIKSAAN</h3>
+          </div>
+          <div class="card-body">
+            <table>
+              <thead>
+                <tr>
+                  <th>BAGIAN</th>
+                  <th>SPAREPART YANG PERLU DIKETAHUI</th>
+                  <th>FUNGSI</th>
+                  <th>CEK HARIAN</th>
+                  <th>TINDAKAN JIKA RUSAK</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Tangki</strong></td>
+                  <td>Tutup tangki (cap), seal karet tutup</td>
+                  <td>Menjaga larutan tidak tumpah & kedap</td>
+                  <td>Retak, benjolan, tutup longgar</td>
+                  <td>Ganti tutup/seal. Jangan pakai bila retak besar</td>
+                </tr>
+                <tr>
+                  <td><strong>Filter dalam tangki</strong></td>
+                  <td>Strainer / saringan mesh</td>
+                  <td>Mencegah kotoran masuk ke pompa</td>
+                  <td>Kotor tersumbat</td>
+                  <td>Bilas dengan air bersih, gosok pelan, ganti bila mesh robek</td>
+                </tr>
+                <tr>
+                  <td><strong>Pompa (Lever/Piston)</strong></td>
+                  <td>O-ring, Cup seal/leather cup, Piston, Valve ball/spring</td>
+                  <td>Membangkitkan tekanan</td>
+                  <td>Pompa berat / tekanan turun / ada tetesan</td>
+                  <td>Ganti O-ring/cup seal. Lakukan perbaikan terstandar</td>
+                </tr>
+                <tr>
+                  <td><strong>Selang Tekan</strong></td>
+                  <td>Hose, Clamp selang</td>
+                  <td>Saluran larutan bertekanan</td>
+                  <td>Gelembung/retak, lecet, kendor di sambungan</td>
+                  <td>Ganti selang atau kencangkan clamp. Jangan diikat paksa</td>
+                </tr>
+                <tr>
+                  <td><strong>Nozzle Holder</strong></td>
+                  <td>Washer karet, Gasket, Nipple</td>
+                  <td>Tempel nozzle, kedap sambungan</td>
+                  <td>Kebocoran di ujung holder</td>
+                  <td>Ganti washer/gasket (biaya kecil, sering lupa)</td>
+                </tr>
+                <tr>
+                  <td><strong>Nozzle</strong></td>
+                  <td>Disc/Core atau tipe yang dipakai kebun</td>
+                  <td>Membentuk pola semprot & menentukan <em>volume/ha</em></td>
+                  <td>Lubang melebar/aus, pola tidak merata, kabut kasar/berantakan</td>
+                  <td><strong>GANTI</strong> jika sudah aus. Ausnya nozzle = dosis bisa meleset & boros</td>
+                </tr>
+                <tr>
+                  <td><strong>Strap & Back Plate</strong></td>
+                  <td>Webbing strap, Buckle, Pad punggung</td>
+                  <td>Kenyamanan & keselamatan saat membawa 12 L</td>
+                  <td>Tarik benang putus, gesper retak, busa hancur</td>
+                  <td>Ganti sebelum putus total. Hindari mengencangkan berlebihan</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="note warning">
+              <strong>TIPS PRAKTIS :</strong>
+              <p>Simpan <em>sparepart</em> kecil (O-ring, washer, gasket, filter mesh) di kotak peralatan semprot. Paling sering bocor justru di gasket & O-ring, bukan di pompa besar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="poster" id="kalibrasi">
+      <div class="poster-header">
+        <div class="title-group">
+          <span class="kicker">BAGIAN 2</span>
+          <h2>KALIBRASI, SPRAY FACTOR (SF) & PEMILIHAN NOZZLE</h2>
+          <p class="subtitle">Kunci agar dosis per tangki 12 L tepat sasaran</p>
+        </div>
+      </div>
+      <div class="poster-body">
+        <div class="span-6 card">
+          <div class="card-header">
+            <h3>APA ITU SPRAY FACTOR (SF)?</h3>
+          </div>
+          <div class="card-body">
+            <p class="lead"><strong>Spray Factor</strong> adalah faktor penyesuaian yang digunakan untuk menghitung takaran herbisida per tangki, berdasar perbandingan <strong>Volume Semprot Aktual (liter/ha)</strong> hasil kalibrasi dengan acuan yang dipakai.</p>
+            <div class="note info">
+              <strong>RUMUS UMUM</strong>
+              <p><strong>SF = Volume Semprot Aktual (L/Ha) ÷ Volume Semprot Acuan (L/Ha)</strong></p>
+              <p><strong>Takaran/Tangki (ml atau gr) = (Dosis/Ha rekomendasi) x SF x (12 ÷ 1000)</strong> *disederhanakan utk tangki 12 L</p>
+            </div>
+            <div class="note">
+              <strong>CARA KALIBRASI SEDERHANA DI KEBUN</strong>
+              <p>1. Isi kep dengan air bersih, pasang nozzle yang akan dipakai.</p>
+              <p>2. Jalan dengan kecepatan semprot biasa (langkah konsisten).</p>
+              <p>3. Semprot areal seluas 1 are (100 m²) atau trek 100-200 m dengan lebar sapuan sesuai kebiasaan.</p>
+              <p>4. Ukur sisa/terpakai air (L) untuk areal tersebut -> hitung L/Ha.</p>
+              <p>5. Bandingkan dengan tabel nozzle dibawah, lalu pakai <strong>SF</strong> tsb.</p>
+            </div>
+          </div>
+        </div>
+        <div class="span-6 card">
+          <div class="card-header">
+            <h3>VOLUME SEMPROT & PEMILIHAN NOZZLE (ACUAN LAPANGAN)</h3>
+          </div>
+          <div class="card-body">
+            <table>
+              <thead>
+                <tr>
+                  <th>JENIS NOZZLE</th>
+                  <th>KONDISI GULMA</th>
+                  <th>VOLUME SEMPROT (L/Ha)</th>
+                  <th>KET</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Hollow Cone Kecil</strong></td>
+                  <td>Gulma sangat muda, rumpun kecil, <em>selective spot</em> ringan</td>
+                  <td>150 – 200</td>
+                  <td>Kabut halus. Hanya dipakai bila benar-benar sesuai & hati-hati drift</td>
+                </tr>
+                <tr>
+                  <td><strong>Hollow Cone Sedang / Fan Nozzle Disesuaikan</strong></td>
+                  <td>Gulma campuran, dominan herba (lembut)</td>
+                  <td>200 – 250</td>
+                  <td>Paling umum untuk <strong>PRIMA UP / META PRIMA</strong> pada piringan/mid row ringan</td>
+                </tr>
+                <tr>
+                  <td><strong>Flood Jet / Cone Lebih Besar</strong></td>
+                  <td>Gulma rapat, semak muda-sedang</td>
+                  <td>250 – 300</td>
+                  <td>Lebih aman, coverage lebih baik, penembusan cukup</td>
+                </tr>
+                <tr>
+                  <td><strong>Deflector / Nozzle Khusus (disesuaikan)</strong></td>
+                  <td>Gulma berumpun tebal / area sulit & untuk <em>direct spray</em> merambat</td>
+                  <td>300 – 350</td>
+                  <td>Cocok kombinasi sasaran pada <em>patch</em>. Untuk <strong>KENLON</strong> pada rumpun merambat/berkayu lebih terarah</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="note warning">
+              <strong>PRINSIP NOZZLE IDEAL :</strong>
+              <p><strong>Gulma Lembut & Muda</strong> = Volume lebih rendah (200-250 L/Ha). <strong>Gulma Tebal / Merambat / Berkayu</strong> = Volume cukup (250-320 L/Ha) dengan semprot <strong>TEPAT SASARAN</strong>, bukan membanjiri seluruh tajuk.</p>
+            </div>
+          </div>
+        </div>
+        <div class="span-12 card">
+          <div class="card-header">
+            <h3>CONTOH HITUNG PRAKTIS (TANGKI EVOLUTION INTER 12 L)</h3>
+          </div>
+          <div class="card-body">
+            <div class="split">
+              <div class="card" style="box-shadow:none">
+                <div class="card-header">
+                  <h3>CONTOH 1 - PRIMA UP (GLIFOSAT)</h3>
+                </div>
+                <div class="card-body">
+                  <p>Rekomendasi acuan : <strong>2,0 – 2,5 L/Ha</strong> (kondisi gulma campuran sedang)</p>
+                  <p>Hasil kalibrasi : <strong>250 L/Ha</strong> (Acuan kebun) -> <strong>SF = 250/250 = 1,00</strong></p>
+                  <p>Ambil tengah : 2,25 L/Ha x 1,00 x 12/1000 = <strong>27 ml / tangki 12 L</strong> (bisa disesuaikan real SF)</p>
+                  <p><em>Jika SF = 1,10 (300 L/Ha) maka takaran naik proporsional.</em></p>
+                </div>
+              </div>
+              <div class="card" style="box-shadow:none">
+                <div class="card-header">
+                  <h3>CONTOH 2 - META PRIMA (METSULFURON METHYL)</h3>
+                </div>
+                <div class="card-body">
+                  <p>Rekomendasi acuan : <strong>15 – 40 gr/Ha</strong> (tergantung dominansi daun lebar & gulma sulit)</p>
+                  <p>Untuk campuran/berdaun lebar : umumnya <strong>20 – 25 gr/Ha</strong></p>
+                  <p>Dengan SF hasil kalibrasi -> hitung per tangki 12 L</p>
+                  <p><strong>Utamakan takaran per tangki, bukan "corat-coret"</strong></p>
+                </div>
+              </div>
+              <div class="card" style="box-shadow:none">
+                <div class="card-header">
+                  <h3>CONTOH 3 - KENLON (TRICLOPYR)</h3>
+                </div>
+                <div class="card-body">
+                  <p>Rekomendasi acuan : <strong>0,5 – 1,5 L/Ha</strong> untuk <em>direct spray</em> gulma berkayu/merambat</p>
+                  <p>Lebih efektif <strong>ditujukan langsung</strong> ke batang/ujung sulur, bukan blanket penuh.</p>
+                  <p>Gunakan volume cukup (250-300 L/Ha) dengan pola terarah.</p>
+                  <p><strong>Hindari kabut terlalu halus saat angin ada.</strong></p>
+                </div>
+              </div>
+            </div>
+            <div class="note danger">
+              <strong>CATATAN PENTING :</strong>
+              <p>Angka diatas adalah <strong>ACUAN LAPANGAN</strong>. Selalu ikuti <strong>label resmi</strong> herbisida, petunjuk teknis Perusahaan, hasil kalibrasi blok anda sendiri dan peraturan K3 yang berlaku. Jangan menebak dosis.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="poster" id="herbisida">
+      <div class="poster-header">
+        <div class="title-group">
+          <span class="kicker">BAGIAN 3</span>
+          <h2>HERBISIDA YANG DIGUNAKAN</h2>
+          <p class="subtitle">Prima Up - Meta Prima - Kenlon</p>
+        </div>
+      </div>
+      <div class="poster-body">
+        <div class="span-12 card">
+          <div class="card-header">
+            <h3>RINGKASAN KARAKTERISTIK</h3>
+          </div>
+          <div class="card-body">
+            <table>
+              <thead>
+                <tr>
+                  <th>MERK</th>
+                  <th>BAHAN AKTIF</th>
+                  <th>FORMULASI</th>
+                  <th>TIPE</th>
+                  <th>EFIKASI UTAMA</th>
+                  <th>WAKTU KERJA</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>PRIMA UP</strong></td>
+                  <td>Glifosat (Isopropilamina garam)</td>
+                  <td>SL (Soluble Liquid)</td>
+                  <td>Sistemik - Non selektif (bila kena tanaman tidak dilindungi)</td>
+                  <td>Alang-alang (<em>Imperata cylindrica</em>), rumput tahunan/perenial, gulma herba luas</td>
+                  <td>Gejala 3-7 hari, kematian 1-3 minggu (tergantung umur gulma)</td>
+                </tr>
+                <tr>
+                  <td><strong>META PRIMA</strong></td>
+                  <td>Metsulfuron Methyl</td>
+                  <td>WP/DF (kebanyakan kemasan lapangan yg dipakai)</td>
+                  <td>Sistemik - Selektif relatif (sangat baik untuk berdaun lebar)</td>
+                  <td>Daun lebar herba, <em>Asystasia</em>, <em>Borreria</em>, <em>Clidemia</em> muda</td>
+                  <td>Gejala 7-14 hari, efektiv lebih baik pada gulma muda & aktif tumbuh</td>
+                </tr>
+                <tr>
+                  <td><strong>KENLON</strong></td>
+                  <td>Triclopyr</td>
+                  <td>EC / berorientasi <em>brush control</em></td>
+                  <td>Sistemik - Auxin Mimic</td>
+                  <td>Gulma berkayu, semak, sulur/merambat keras (<em>Cissus</em>, <em>Mikania</em> tebal, perdu)</td>
+                  <td>Gejala melengkung/layu 7-14 hari, hasil maksimal 2-4 minggu</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="span-12 card">
+          <div class="card-header">
+            <h3>ACUAN DOSIS & PENYESUAIAN PER TANGKI 12 L (BERDASAR SPRAY FACTOR)</h3>
+          </div>
+          <div class="card-body">
+            <table>
+              <thead>
+                <tr>
+                  <th>HERBISIDA</th>
+                  <th>DOSIS ACUAN / HA</th>
+                  <th>KONDISI APLIKASI</th>
+                  <th>CARA APLIKASI</th>
+                  <th>CATATAN</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>PRIMA UP (Glifosat)</strong></td>
+                  <td>1,5 – 3,0 L/Ha</td>
+                  <td>Alang-alang muda-sedang (1,5-2,0 L). Alang-alang tebal/rapat (2,0-3,0 L)</td>
+                  <td><strong>Overlap ringan</strong>, semprot merata ke helaian/daun, hindari menyemprot batang muda sawit yang terbuka</td>
+                  <td>Efektif bila gulma aktif tumbuh (cuaca lembab, tidak kering parah). Sangat rentan bila kena daun sawit non-target</td>
+                </tr>
+                <tr>
+                  <td><strong>META PRIMA (Metsulfuron Methyl)</strong></td>
+                  <td>15 – 40 gr/Ha</td>
+                  <td>Dominan berdaun lebar muda (15-25 gr). Campuran berdaun lebar lebih padat/sulit (25-40 gr)</td>
+                  <td><strong>Full cover</strong> ringan ke daun gulma, lebih efisien pada gulma < 15-30 cm</td>
+                  <td>Sangat baik dicampur/bergantian bergantung program. Efektif di lahan lembab. Perhatikan gulma yang sudah tua (respon lebih lambat)</td>
+                </tr>
+                <tr>
+                  <td><strong>KENLON (Triclopyr)</strong></td>
+                  <td>0,5 – 1,5 L/Ha</td>
+                  <td><em>Spot/patch</em> gulma merambat/berkayu (0,5-1,0 L). Sangat tebal & melilit pokok (1,0-1,5 L) dengan <em>direct spray</em></td>
+                  <td><strong>Direct Spray</strong> ke batang utama, titik tumbuh/sulur yang melilit, pangkal sulur yang menempel. Minimalkan blanket</td>
+                  <td>Paling pas untuk <strong>pengendalian terarah</strong>. Kurangi drift. Fokus ke bagian yang menyelimuti pelepah/pokok, bukan kabut keseluruhan kanopi gulma</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="note">
+              <strong>RUMUS CEPAT PER TANGKI 12 L</strong>
+              <p><strong>Takaran/Tangki = (Dosis/Ha x SF) x 0,012</strong> <em>(dengan catatan satuan ml untuk L/Ha atau gr untuk gr/Ha)</em></p>
+              <p>Contoh : Glifosat 2,0 L/Ha x SF 1,00 -> 2,0 x 0,012 = <strong>0,024 L = 24 ml/tangki</strong>. Sesuaikan hasil kalibrasi aktual blok anda.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="poster" id="gulma-umum">
+      <div class="poster-header">
+        <div class="title-group">
+          <span class="kicker">BAGIAN 4</span>
+          <h2>JENIS GULMA UMUM DI PERKEBUNAN KELAPA SAWIT</h2>
+          <p class="subtitle">Ciri, Habitat, Drawback Terhadap Sawit & Cara Pengendalian</p>
+        </div>
+      </div>
+      <div class="poster-body">
+        <div class="span-12 card">
+          <div class="card-header">
+            <h3>PROFIL GULMA YANG SERING DITEMUI</h3>
+          </div>
+          <div class="card-body">
+            <table>
+              <thead>
+                <tr>
+                  <th>NAMA ILMIAH / LOKAL</th>
+                  <th>ILUSTRASI</th>
+                  <th>CIRI UTAMA</th>
+                  <th>HABITAT</th>
+                  <th>DRAWBACK / NEGATIVITAS TERHADAP KELAPA SAWIT</th>
+                  <th>REKOMENDASI PENGENDALIAN KIMIA</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Imperata cylindrica</strong><br><em>Alang-alang</em></td>
+                  <td>
+                    <svg width="90" height="90" viewBox="0 0 90 90">
+                      <rect width="90" height="90" rx="12" fill="#f1f8f4" />
+                      <line x1="45" y1="75" x2="45" y2="30" stroke="#7a8b2a" stroke-width="6" stroke-linecap="round" />
+                      <ellipse cx="45" cy="26" rx="14" ry="10" fill="#9fb43a" />
+                      <path d="M30 40 L45 30 L60 40" stroke="#7a8b2a" stroke-width="4" fill="none" stroke-linecap="round" />
+                    </svg>
+                  </td>
+                  <td>Rumput tegak, rimpang kuat, bunga bulir putih-sutra, berumpun padat</td>
+                  <td>Gawangan/piringan terbuka, bekas kebakaran, area kering-terbuka</td>
+                  <td>Persaingan air & hara kuat, menutup tanah, merugikan pertumbuhan TBM, sulit dikendalikan bila rimpang tua, bisa jadi bahan bakar</td>
+                  <td><strong>Prima Up (Glifosat)</strong> 1,8 - 2,8 L/Ha (sesuai SF). Lebih baik pada saat aktif tumbuh (tidak saat kering ekstrem). Bisa perlu pengulangan pada rumpun sangat tua.</td>
+                </tr>
+                <tr>
+                  <td><strong>Paspalum conjugatum</strong><br><em>Rumput Paspalum / Kerbau</em></td>
+                  <td>
+                    <svg width="90" height="90" viewBox="0 0 90 90">
+                      <rect width="90" height="90" rx="12" fill="#f1f8f4" />
+                      <path d="M45 75 C40 55 30 40 25 28" stroke="#3f7c3f" stroke-width="6" fill="none" stroke-linecap="round" />
+                      <path d="M45 75 C50 52 62 38 68 26" stroke="#3f7c3f" stroke-width="6" fill="none" stroke-linecap="round" />
+                      <ellipse cx="25" cy="24" rx="10" ry="6" fill="#6fbf6f" />
+                      <ellipse cx="68" cy="22" rx="10" ry="6" fill="#6fbf6f" />
+                    </svg>
+                  </td>
+                  <td>Menjalar-merambat di permukaan, daun lebar-lonjong, stolon panjang</td>
+                  <td>Lembab, teduh ringan, piringan & jalan kebun</td>
+                  <td>Menutupi tanah rapat, persaingan ringan-sedang, menghalangi semprotan selektif, bisa menjadi jalan tikus di area lembab</td>
+                  <td><strong>Prima Up</strong> 1,0 - 1,8 L/Ha atau campuran terarah. Efektif bila belum terlalu menutup tebal.</td>
+                </tr>
+                <tr>
+                  <td><strong>Axonopus compressus</strong><br><em>Rumput Carpet</em></td>
+                  <td>
+                    <svg width="90" height="90" viewBox="0 0 90 90">
+                      <rect width="90" height="90" rx="12" fill="#f1f8f4" />
+                      <ellipse cx="45" cy="60" rx="26" ry="14" fill="#5aa85a" />
+                      <line x1="30" y1="60" x2="28" y2="32" stroke="#3f7c3f" stroke-width="4" />
+                      <line x1="45" y1="58" x2="45" y2="26" stroke="#3f7c3f" stroke-width="4" />
+                      <line x1="60" y1="60" x2="62" y2="32" stroke="#3f7c3f" stroke-width="4" />
+                    </svg>
+                  </td>
+                  <td>Membentuk karpet rapat, daun agak lebar, tumbuh merayap</td>
+                  <td>Teduh-agak lembab, jalan pikul, piringan muda</td>
+                  <td>Menekan gulma lain tapi persaingan terhadap sawit muda (nutrisi/ruang), sulit di-<em>spot</em> bila sudah karpet padat</td>
+                  <td><strong>Prima Up</strong> 1,0 - 1,6 L/Ha dengan semprot terarah. Fokus pada karpet tebal yang mengganggu piringan.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ottochloa nodosa</strong><br><em>Rumput Bintang</em></td>
+                  <td>
+                    <svg width="90" height="90" viewBox="0 0 90 90">
+                      <rect width="90" height="90" rx="12" fill="#f1f8f4" />
+                      <path d="M45 75 L45 40" stroke="#3f7c3f" stroke-width="6" stroke-linecap="round" />
+                      <circle cx="45" cy="36" r="10" fill="#6fbf6f" />
+                      <path d="M45 36 L28 28" stroke="#3f7c3f" stroke-width="4" stroke-linecap="round" />
+                      <path d="M45 36 L62 28" stroke="#3f7c3f" stroke-width="4" stroke-linecap="round" />
+                      <path d="M45 36 L38 20" stroke="#3f7c3f" stroke-width="4" stroke-linecap="round" />
+                      <path d="M45 36 L52 20" stroke="#3f7c3f" stroke-width="4" stroke-linecap="round" />
+                    </svg>
+                  </td>
+                  <td>Berumpun, daun runcing, kadang bersifat merayap, tumbuh cepat</td>
+                  <td>Agak terbuka-lembab, mid-row & piringan</td>
+                  <td>Persaingan sedang-kuat bila rapat, tumbuh cepat pas hujan, bisa menutupi pemupukan area piringan</td>
+                  <td><strong>Prima Up</strong> 1,2 - 2,0 L/Ha atau kombinasi sesuai SF. Efektif saat vegetatif aktif.</td>
+                </tr>
+                <tr>
+                  <td><strong>Asystasia gangetica</strong><br><em>Rumput Israel / Ara Sungsang</em></td>
+                  <td>
+                    <svg width="90" height="90" viewBox="0 0 90 90">
+                      <rect width="90" height="90" rx="12" fill="#f1f8f4" />
+                      <path d="M45 75 L45 40" stroke="#3f7c3f" stroke-width="4" />
+                      <ellipse cx="45" cy="36" rx="14" ry="10" fill="#7fc87f" />
+                      <ellipse cx="40" cy="34" rx="4" ry="3" fill="#f5f5f5" opacity="0.8" />
+                      <ellipse cx="50" cy="36" rx="4" ry="3" fill="#f5f5f5" opacity="0.8" />
+                    </svg>
+                  </td>
+                  <td>Daun lebar oval, batang lunak, bunga ungu-putih, cepat tumbuh</td>
+                  <td>Terbuka, lembab, piringan & areal baru</td>
+                  <td>Persaingan cepat terhadap unsur hara, menutupi lingkaran piringan, bisa menghambat pengamatan & pemeliharaan</td>
+                  <td><strong>Meta Prima (Metsulfuron Methyl)</strong> 15 - 25 gr/Ha. Sangat responsif bila masih muda (< 25-30 cm). Bisa dipadukan dengan pertimbangan program.</td>
+                </tr>
+                <tr>
+                  <td><strong>Borreria alata / Borreria latifolia</strong><br><em>Rumput Setawar / Borreria</em></td>
+                  <td>
+                    <svg width="90" height="90" viewBox="0 0 90 90">
+                      <rect width="90" height="90" rx="12" fill="#f1f8f4" />
+                      <path d="M45 75 L45 38" stroke="#3f7c3f" stroke-width="4" />
+                      <circle cx="45" cy="34" r="12" fill="#8bd48b" />
+                      <circle cx="40" cy="32" r="3" fill="#ffffff" opacity="0.7" />
+                      <circle cx="50" cy="36" r="2.5" fill="#ffffff" opacity="0.7" />
+                    </svg>
+                  </td>
+                  <td>Daun bulat-oval, berhadapan, batang berkebul, bunga kecil putih/merah muda</td>
+                  <td>Terbuka-lembab, piringan, sering muncul massal</td>
+                  <td>Persaingan sedang-kuat, tumbuh serempak masif, menutup area piringan sehingga mengganggu pemupukan & sanitas</td>
+                  <td><strong>Meta Prima</strong> 15 - 30 gr/Ha. Optimal pada fase roset/muda. Semakin tua, dosis perlu disesuaikan & respon lebih lambat.</td>
+                </tr>
+                <tr>
+                  <td><strong>Chromolaena odorata</strong><br><em>Kirinyuh</em></td>
+                  <td>
+                    <svg width="90" height="90" viewBox="0 0 90 90">
+                      <rect width="90" height="90" rx="12" fill="#f1f8f4" />
+                      <path d="M45 75 L45 30" stroke="#3f7c3f" stroke-width="6" stroke-linecap="round" />
+                      <ellipse cx="45" cy="26" rx="16" ry="10" fill="#7fc87f" />
+                      <ellipse cx="38" cy="24" rx="6" ry="4" fill="#9fe39f" />
+                      <ellipse cx="52" cy="28" rx="6" ry="4" fill="#9fe39f" />
+                    </svg>
+                  </td>
+                  <td>Semak, batang lunak-keberkayu, daun segitiga-oval berbau khas, cepat bercabang</td>
+                  <td>Terbuka, bekas tebangan/areal rusak</td>
+                  <td>Berkembang jadi semak, menaungi anak sawit, persaingan kuat, mempersulit akses jalan pikul, sarang serangga & bisa jadi pelindung hama</td>
+                  <td><strong>Kenlon (Triclopyr)</strong> 0,6 - 1,0 L/Ha dengan <strong>direct spray</strong> ke batang & pucuk, atau kombinasi terarah. Untuk semak sedang bisa difokuskan per rumpun.</td>
+                </tr>
+                <tr>
+                  <td><strong>Clidemia hirta</strong><br><em>Harendong Bulan</em></td>
+                  <td>
+                    <svg width="90" height="90" viewBox="0 0 90 90">
+                      <rect width="90" height="90" rx="12" fill="#f1f8f4" />
+                      <path d="M45 75 L45 36" stroke="#3f7c3f" stroke-width="5" stroke-linecap="round" />
+                      <ellipse cx="45" cy="32" rx="14" ry="10" fill="#8bd48b" />
+                      <circle cx="38" cy="30" r="3" fill="#a9f0a9" />
+                      <circle cx="52" cy="34" r="2.6" fill="#a9f0a9" />
+                    </svg>
+                  </td>
+                  <td>Semak kecil, daun oval berbulu halus, urat menonjol, bunga ungu, buah buni</td>
+                  <td>Teduh-lembab, tepi blok, area dengan naungan ringan</td>
+                  <td>Membentuk rumpun padat, menaungi, persaingan sedang-kuat, cepat menyebar biji, menyulitkan pembersihan piringan</td>
+                  <td><strong>Meta Prima</strong> 20 - 35 gr/Ha pada muda, atau <strong>Kenlon</strong> 0,6 - 0,9 L/Ha <em>direct spray</em> bila mulai berkayu. Prioritaskan <strong>terarah</strong>.</td>
+                </tr>
+                <tr>
+                  <td><strong>Mikania micrantha</strong><br><em>Sembung rambat</em></td>
+                  <td>
+                    <svg width="90" height="90" viewBox="0 0 90 90">
+                      <rect width="90" height="90" rx="12" fill="#f1f8f4" />
+                      <path d="M45 75 C35 58 25 48 22 36" stroke="#3f7c3f" stroke-width="4" fill="none" stroke-linecap="round" />
+                      <path d="M45 75 C55 56 66 44 70 30" stroke="#3f7c3f" stroke-width="4" fill="none" stroke-linecap="round" />
+                      <path d="M45 75 C44 52 40 38 36 24" stroke="#3f7c3f" stroke-width="4" fill="none" stroke-linecap="round" />
+                      <ellipse cx="22" cy="32" rx="10" ry="6" fill="#7fc87f" />
+                      <ellipse cx="70" cy="26" rx="10" ry="6" fill="#7fc87f" />
+                      <ellipse cx="36" cy="20" rx="9" ry="5" fill="#7fc87f" />
+                    </svg>
+                  </td>
+                  <td>Merambat kuat, sulur panjang, daun segitiga-hati, tumbuh sangat cepat</td>
+                  <td>Terbuka-lembab, pinggir blok, palung, tepi jalan</td>
+                  <td>Sangat agresif, melilit pelepah, menutupi tajuk muda, menghambat pertumbuhan TBM, mempersulit pemanenan, sarang hama</td>
+                  <td><strong>Kenlon (Triclopyr)</strong> 0,7 - 1,0 L/Ha <strong>direct spray</strong> ke sulur/batang yang melilit. Pada infestasi ringan-sedang bisa dikombinasi penarikan manual terarah + semprot.</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="note warning">
+              <strong>KUNCI :</strong>
+              <p><strong>Rumput</strong> -> cenderung lebih responsif ke <strong>Prima Up</strong>. <strong>Berdaun Lebar (Herba)</strong> -> unggul <strong>Meta Prima</strong>. <strong>Berkayu / Merambat Kuat</strong> -> andalkan <strong>Kenlon</strong> dengan <strong>penyemprotan langsung (direct spray)</strong>, minimalkan blanket.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="poster" id="cissus">
+      <div class="poster-header">
+        <div class="title-group">
+          <span class="kicker">BAGIAN 5 - FOKUS KHUSUS</span>
+          <h2>CISSUS REPENS LAM. (GULMA MERAMBAT MENYELIMUTI POKOK SAWIT)</h2>
+          <p class="subtitle">Identifikasi, Bahaya, Strategi Potong + Semprot & Cara Pengendalian</p>
+        </div>
+      </div>
+      <div class="poster-body">
+        <div class="span-6 card">
+          <div class="card-header">
+            <h3>IDENTIFIKASI</h3>
+          </div>
+          <div class="card-body">
+            <div class="illustration">
+              <svg viewBox="0 0 360 280" xmlns="http://www.w3.org/2000/svg">
+                <rect width="360" height="280" rx="16" fill="#f7fbf9" />
+                <line x1="180" y1="250" x2="180" y2="90" stroke="#7d6741" stroke-width="14" stroke-linecap="round" />
+                <ellipse cx="180" cy="70" rx="22" ry="28" fill="#9ad99a" />
+                <path d="M180 90 C150 110 120 140 110 180" stroke="#3f7c3f" stroke-width="8" fill="none" stroke-linecap="round" />
+                <path d="M180 100 C160 130 140 170 135 215" stroke="#3f7c3f" stroke-width="8" fill="none" stroke-linecap="round" />
+                <path d="M180 110 C200 140 230 170 245 205" stroke="#3f7c3f" stroke-width="8" fill="none" stroke-linecap="round" />
+                <path d="M180 120 C195 150 210 190 215 230" stroke="#3f7c3f" stroke-width="8" fill="none" stroke-linecap="round" />
+                <ellipse cx="108" cy="186" rx="16" ry="10" fill="#7fc87f" />
+                <ellipse cx="133" cy="221" rx="16" ry="10" fill="#7fc87f" />
+                <ellipse cx="247" cy="211" rx="16" ry="10" fill="#7fc87f" />
+                <ellipse cx="216" cy="236" rx="16" ry="10" fill="#7fc87f" />
+                <text x="70" y="50" font-size="12" fill="#1f4d2e">SULUR MEMELIT PELEPAH/POKOK</text>
+                <text x="210" y="70" font-size="12" fill="#1f4d2e">DAUN MENYERUPAI HATI</text>
+              </svg>
+            </div>
+            <div class="grid-list">
+              <article class="pill">
+                <strong>BENTUK</strong>
+                <p>Liana (tumbuhan merambat berkayu), sulur kuat & lentur</p>
+              </article>
+              <article class="pill">
+                <strong>DAUN</strong>
+                <p>Hati/bulat-berujung, tersusun, hijau mengkilap, rapat saat menyelimuti</p>
+              </article>
+              <article class="pill">
+                <strong>BATANG</strong>
+                <p>Mulai lunak lalu menjadi agak berkayu, mudah melilit erat</p>
+              </article>
+              <article class="pill">
+                <strong>KECEPATAN</strong>
+                <p>Sangat cepat saat lembab/awal musim hujan</p>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="span-6 card">
+          <div class="card-header">
+            <h3>BAHAYA TERHADAP KELAPA SAWIT</h3>
+          </div>
+          <div class="card-body">
+            <div class="grid-list">
+              <article class="pill">
+                <strong>MENYELIMUTI</strong>
+                <p>Menutup pelepah, daun muda & kadang tajuk -> menghambat fotosintesis</p>
+              </article>
+              <article class="pill">
+                <strong>PEMANENAN TERGANGGU</strong>
+                <p>Sulit melihat buah matang, jalan pemanen terhalang, risiko terganggu</p>
+              </article>
+              <article class="pill">
+                <strong>PERSAINGAN</strong>
+                <p>Bersaing cahaya, air & unsur hara terutama pada TBM/IM</p>
+              </article>
+              <article class="pill">
+                <strong>MEKANIS</strong>
+                <p>Tarikan sulur bisa menarik pelepah, mempersulit perawatan & sanitasi</p>
+              </article>
+              <article class="pill">
+                <strong>SARANG HAMA</strong>
+                <p>Kerapatan rimbun bisa jadi tempat berteduh tikus/serangga</p>
+              </article>
+              <article class="pill">
+                <strong>CEPAT MENYEBAR</strong>
+                <p>Dari pokok ke pokok via sulur, bisa meluas dalam waktu singkat</p>
+              </article>
+            </div>
+            <div class="note danger">
+              <strong>PERHATIAN :</strong>
+              <p>Jangan hanya "menarik" seluruh sulur ke atas dengan paksa tanpa dihilangkan. Seringkali sisa pangkal sulur di batang akan tumbuh kembali dengan lebih agresif.</p>
+            </div>
+          </div>
+        </div>
+        <div class="span-12 card">
+          <div class="card-header">
+            <h3>STRATEGI PENGENDALIAN : POTONG + SEMPROT (PALING EFEKTIF)</h3>
+          </div>
+          <div class="card-body">
+            <table>
+              <thead>
+                <tr>
+                  <th>TAHAP</th>
+                  <th>KEGIATAN</th>
+                  <th>URAIAN</th>
+                  <th>KET</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>TAHAP 1 - INSPEKSI</strong></td>
+                  <td>Identifikasi pokok terdampak</td>
+                  <td>Pilih pokok yg sudah melilit pelepah/ada sulur tebal. Fokus pada <em>patch</em>, bukan seluruh blok.</td>
+                  <td>Pilih waktu semprot yang tepat (aktif tumbuh)</td>
+                </tr>
+                <tr>
+                  <td><strong>TAHAP 2 - POTONG (MANUAL)</strong></td>
+                  <td>Potong sulur di bagian yang mudah dijangkau</td>
+                  <td>Potong sulur utama di <strong>sekitar pangkal</strong> atau di titik yang akan disentuh semprot. Lepaskan gulma yang sudah menggantung agar lebih terarah.</td>
+                  <td>Gunakan sabit/golok tajam. Hindari merusak pelepah produktif & bonggol pokok</td>
+                </tr>
+                <tr>
+                  <td><strong>TAHAP 3 - DIRECT SPRAY</strong></td>
+                  <td>Semprot <strong>langsung</strong> ke sisa sulur, pangkal sulur, titik tumbuh & batang merambat</td>
+                  <td>Fokus ke bagian yang <strong>masih melekat</strong> di pokok/menyentuh pelepah. Semprotkan secukupnya hingga lembab, <strong>bukan mengalir deras</strong>.</td>
+                  <td><strong>Wajib terarah</strong>. Minimalkan drift ke daun produktif sawit</td>
+                </tr>
+                <tr>
+                  <td><strong>TAHAP 4 - MONITORING</strong></td>
+                  <td>Amati 2-4 minggu setelah semprot</td>
+                  <td>Lihat melengkung, layu, menguning, mati bertahap. Pada sisa yang masih hidup, lakukan <em>spot spray</em> ulang terarah.</td>
+                  <td>Jangan potong paksa gulma yang sudah layu kecuali benar-benar mengganggu</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="split">
+              <div class="card" style="box-shadow:none">
+                <div class="card-header">
+                  <h3>REKOMENDASI HERBISIDA</h3>
+                </div>
+                <div class="card-body">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>BAHAN</th>
+                        <th>DOSIS / TANGKI 12 L (ACUAN)</th>
+                        <th>KETERANGAN</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>KENLON (Triclopyr)</strong></td>
+                        <td>40 – 80 ml / tangki 12 L</td>
+                        <td><strong>PRIORITAS UTAMA</strong> untuk <em>Cissus repens</em>. Sangat baik ke batang sulur & pangkal yang berkayu.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>PRIMA UP (Glifosat)</strong></td>
+                        <td>30 – 60 ml / tangki 12 L</td>
+                        <td>Bisa dipakai untuk <em>direct spray</em> terarah pada sulur yang masih relatif lunak. Kurang unggul dibanding Triclopyr bila sudah sangat berkayu & melilit erat.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>PRIMA UP + KENLON (KOMBINASI TERARAH)</strong></td>
+                        <td>Sesuaikan proporsional (fokus <em>spot</em>)</td>
+                        <td>Bisa dipertimbangkan pada infestasi campuran sangat tebal. <strong>Wajib dikontrol takarannya</strong> & hanya untuk <em>direct spray</em>.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="card" style="box-shadow:none">
+                <div class="card-header">
+                  <h3>TIPS & LARANGAN</h3>
+                </div>
+                <div class="card-body">
+                  <div class="note">
+                    <strong>TIPS AGAR BERHASIL</strong>
+                    <p>• <strong>Potong + Semprot</strong> > hanya menarik.</p>
+                    <p>• Fokus ke <strong>pangkal sulur</strong> yang masih menempel di pokok.</p>
+                    <p>• Gunakan <strong>nozzle terarah</strong> (hindari kabut lebar).</p>
+                    <p>• Lakukan saat gulma aktif tumbuh & cuaca cerah (minimal 2-4 jam tidak hujan).</p>
+                    <p>• Utamakan <em>spot treatment</em> hemat racun & aman untuk sawit.</p>
+                  </div>
+                  <div class="note danger">
+                    <strong>LARANGAN</strong>
+                    <p>• <strong>Dilarang</strong> menyemprot kabut ke seluruh kanopi sawit.</p>
+                    <p>• <strong>Dilarang</strong> menarik sulur dengan keras saat basah racun (bisa merobek pelepah).</p>
+                    <p>• <strong>Dilarang</strong> blanket area luas hanya karena ada 1-2 pokok yang melilit.</p>
+                    <p>• <strong>Hindari</strong> semprot saat angin kencang/bertiup ke arah tajuk sawit.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="poster" id="perawatan">
+      <div class="poster-header">
+        <div class="title-group">
+          <span class="kicker">BAGIAN 6</span>
+          <h2>TEKNIK PEMBERSIHAN, PERAWATAN & PENYIMPANAN KEP EVOLUTION INTER 12 L</h2>
+          <p class="subtitle">Panjang Umur Alat, Aman & Bebas Sumbatan</p>
+        </div>
+      </div>
+      <div class="poster-body">
+        <div class="span-8 card">
+          <div class="card-header">
+            <h3>SOP PEMBERSIHAN SETELAH PAKAI (WAJIB)</h3>
+          </div>
+          <div class="card-body">
+            <table>
+              <thead>
+                <tr>
+                  <th>URUTAN</th>
+                  <th>KEGIATAN</th>
+                  <th>CARANYA</th>
+                  <th>TUJUAN</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td><strong>Kosongkan Sisa</strong></td>
+                  <td>Keluarkan sisa larutan ke tempat yang aman sesuai prosedur perusahaan (jangan dibuang sembarangan)</td>
+                  <td>Minimalisir residu</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td><strong>Bilas Tangki</strong></td>
+                  <td>Isi tangki ~2-3 L air bersih, goyang pelan, kocok, buang</td>
+                  <td>Menghilangkan film larutan di dinding tangki</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td><strong>Sirip/Pompa Bekerja</strong></td>
+                  <td>Pompa & semprotkan air bilasan melalui selang + lengan ke area aman (jauh dari sumber air terbuka/sawah)</td>
+                  <td>Membilas saluran tekan, katup & nozzle holder</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td><strong>Buka & Bilas Filter</strong></td>
+                  <td>Angkat/lepaskan <em>filter dalam tangki</em> & <em>filter nozzle holder</em>. Bilas air mengalir, sikat pelan bila perlu</td>
+                  <td>Mencegah sumbatan awal</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td><strong>Bilas Nozzle</strong></td>
+                  <td>Cabut nozzle, bilas terbalik dengan air bersih. Periksa lubang (jangan dibor/ditusuk kawat tajam berlebihan)</td>
+                  <td>Menjaga bentuk lubang & pola semprot tetap benar</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td><strong>Pengeringan & Pemeriksaan</strong></td>
+                  <td>Keringkan bagian luar, periksa kebocoran, kencangkan sambungan yang longgar</td>
+                  <td>Siap disimpan & mudah deteksi kerusakan</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="span-4 card">
+          <div class="card-header">
+            <h3>PERAWATAN RUTIN</h3>
+          </div>
+          <div class="card-body">
+            <div class="grid-list">
+              <article class="pill">
+                <strong>HARIAN</strong>
+                <p>Cek tutup, selang, clamp, nozzle, kebocoran, tali bahu & back pad</p>
+              </article>
+              <article class="pill">
+                <strong>MINGGUAN</strong>
+                <p>Bersihkan filter menyeluruh, cek O-ring/cup seal, periksa washer nozzle holder</p>
+              </article>
+              <article class="pill">
+                <strong>BULANAN</strong>
+                <p>Cek pompa lever, kelancaran gerakan, tekanan, karet-karet elastis (ganti yg keras/retak)</p>
+              </article>
+              <article class="pill">
+                <strong>SAAT PERGANTIAN NOZZLE</strong>
+                <p>Bandingkan pola semprot dengan nozzle baru. Ganti bila aus (pola melebar tidak terkontrol)</p>
+              </article>
+            </div>
+            <div class="note">
+              <strong>PENYIMPANAN</strong>
+              <p>• Simpan di <strong>tempat kering, teduh & berventilasi</strong></p>
+              <p>• Pisahkan dari pupuk, benih, makanan & minuman</p>
+              <p>• Letakkan dalam posisi berdiri, tutup rapat</p>
+              <p>• Jauhkan dari jangkauan anak-anak</p>
+              <p>• Ideal di <strong>Gudang Alat Semprot / Racun</strong> sesuai ketentuan perusahaan</p>
+            </div>
+          </div>
+        </div>
+        <div class="span-12 card">
+          <div class="card-header">
+            <h3>TROUBLESHOOTING SINGKAT</h3>
+          </div>
+          <div class="card-body">
+            <table>
+              <thead>
+                <tr>
+                  <th>GEJALA</th>
+                  <th>KEMUNGKINAN PENYEBAB</th>
+                  <th>PERBAIKAN</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Tekanan cepat turun</strong></td>
+                  <td>Cup seal aus / O-ring bocor / katup tidak rapat</td>
+                  <td>Cek & ganti <em>cup seal</em>/O-ring. Lakukan uji pompa tanpa nozzle</td>
+                </tr>
+                <tr>
+                  <td><strong>Bocor di nozzle holder</strong></td>
+                  <td>Washer/Gasket aus atau retak</td>
+                  <td>Ganti washer/gasket. Jangan lumuri pelumas sembarangan</td>
+                </tr>
+                <tr>
+                  <td><strong>Pola semprot tidak merata / berhamburan</strong></td>
+                  <td>Nozzle aus / kotor / tidak pas duduk</td>
+                  <td>Bersihkan atau <strong>ganti nozzle</strong> (paling sering solusi)</td>
+                </tr>
+                <tr>
+                  <td><strong>Aliran lemah/sesekali macet</strong></td>
+                  <td>Filter dalam tangki atau filter holder tersumbat</td>
+                  <td>Bersihkan kedua filter hingga bersih</td>
+                </tr>
+                <tr>
+                  <td><strong>Bocor di sambungan selang</strong></td>
+                  <td>Clamp kendor / selang mengeras</td>
+                  <td>Kencangkan clamp atau ganti selang bila sudah keras/retak</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="poster" id="apd">
+      <div class="poster-header">
+        <div class="title-group">
+          <span class="kicker">BAGIAN 7</span>
+          <h2>APD, KESELAMATAN KERJA & CHECKLIST HARIAN</h2>
+          <p class="subtitle">Cegah, Lindungi Diri, Kerja Aman</p>
+        </div>
+      </div>
+      <div class="poster-body">
+        <div class="span-6 card">
+          <div class="card-header">
+            <h3>APD WAJIB</h3>
+          </div>
+          <div class="card-body">
+            <div class="grid-list">
+              <article class="pill">
+                <strong>PELINDUNG TUBUH</strong>
+                <p>Baju lengan panjang, celana panjang, aprons/coverall sesuai ketentuan</p>
+              </article>
+              <article class="pill">
+                <strong>TANGAN</strong>
+                <p>Sarung tangan tahan kimia (sesuai jenis pekerjaan)</p>
+              </article>
+              <article class="pill">
+                <strong>KAKI</strong>
+                <p>Sepatu boot karet/beralur (anti-slip), menutup mata kaki</p>
+              </article>
+              <article class="pill">
+                <strong>WAJAH & MATA</strong>
+                <p>Kacamata pelindung / face shield bila ada risiko percikan</p>
+              </article>
+              <article class="pill">
+                <strong>PERNAFASAN</strong>
+                <p>Masker sesuai rekomendasi (perhatikan kondisi & arahan perusahaan)</p>
+              </article>
+              <article class="pill">
+                <strong>KEPALA</strong>
+                <p>Topi pelindung / sesuai standar K3 blok</p>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="span-6 card">
+          <div class="card-header">
+            <h3>LARANGAN & TINDAKAN DARURAT</h3>
+          </div>
+          <div class="card-body">
+            <div class="note danger">
+              <strong>LARANGAN UTAMA</strong>
+              <p>• <strong>TIDAK</strong> makan, minum, merokok saat menakar/mencampur</p>
+              <p>• <strong>TIDAK</strong> menyemprot melawan angin</p>
+              <p>• <strong>TIDAK</strong> meniup sumbatan nozzle dengan mulut</p>
+              <p>• <strong>TIDAK</strong> membilas alat di parit/saluran irigasi/kolam umum</p>
+              <p>• <strong>TIDAK</strong> menyimpan racun bersama makanan/minuman</p>
+            </div>
+            <div class="note">
+              <strong>TINDAKAN DARURAT SINGKAT</strong>
+              <p><strong>Terkena kulit :</strong> Lepas baju terkontaminasi, bilas dengan air mengalir minimal 10-15 menit.</p>
+              <p><strong>Terkena mata :</strong> Bilas mata dengan air mengalir 10-15 menit, segera ke Puskesbun/klinik.</p>
+              <p><strong>Tersedot/terhirup :</strong> Pindah ke udara segar, istirahat, lapor Mandor & dapatkan pertolongan.</p>
+              <p><strong>Tertelan (DARURAT) :</strong> <strong>JANGAN</strong> memaksakan muntah kecuali ada petunjuk medis. Bawa kemasan/label racun ke fasilitas kesehatan.</p>
+              <p><strong>SELALU :</strong> Lapor ke Mandor/Asisten segera. Ikuti prosedur perusahaan.</p>
+            </div>
+          </div>
+        </div>
+        <div class="span-12 card">
+          <div class="card-header">
+            <h3>CHECKLIST SIAP SEMPROT (CEK SEBELUM TURUN)</h3>
+          </div>
+          <div class="card-body">
+            <table>
+              <thead>
+                <tr>
+                  <th>NO</th>
+                  <th>ITEM CEK</th>
+                  <th>YA</th>
+                  <th>TIDAK</th>
+                  <th>KET</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>APD lengkap (baju, sarung tangan, sepatu boot, pelindung)</td>
+                  <td>☐</td>
+                  <td>☐</td>
+                  <td>Wajib</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Kep Evolution Inter 12 L dalam kondisi layak</td>
+                  <td>☐</td>
+                  <td>☐</td>
+                  <td>Tidak ada retak besar</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Nozzle sesuai rencana (cek pola semprot pakai air)</td>
+                  <td>☐</td>
+                  <td>☐</td>
+                  <td>Sesuaikan dg kondisi gulma</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Filter dalam tangki & nozzle holder bersih</td>
+                  <td>☐</td>
+                  <td>☐</td>
+                  <td>Cegah sumbatan</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Selang, clamp, gasket/washer tidak bocor</td>
+                  <td>☐</td>
+                  <td>☐</td>
+                  <td>Uji tekanan singkat</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>Takaran sudah dihitung berdasar <strong>SF</strong> & dosis/tangki</td>
+                  <td>☐</td>
+                  <td>☐</td>
+                  <td>Benar bahan - Benar dosis</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>Arah angin aman (tidak ke arah operator/pekerja lain/tajuk sawit sensitif)</td>
+                  <td>☐</td>
+                  <td>☐</td>
+                  <td>Perhatikan drift</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>Alat bersih, tempat bilas aman, siap pantau cuaca</td>
+                  <td>☐</td>
+                  <td>☐</td>
+                  <td>Minimal 2-4 jam bebas hujan (kondisional)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="poster" id="rangkuman">
+      <div class="poster-header">
+        <div class="title-group">
+          <span class="kicker">BAGIAN 8</span>
+          <h2>RANGKUMAN CEPAT (CHEAT SHEET)</h2>
+          <p class="subtitle">Lihat Sekilas Sebelum Turun Lapangan</p>
+        </div>
+      </div>
+      <div class="poster-body">
+        <div class="span-4 card">
+          <div class="card-header">
+            <h3>PILIH RACUN BERDASAR GULMA</h3>
+          </div>
+          <div class="card-body">
+            <div class="grid-list">
+              <article class="pill">
+                <strong>RUMPUT (Alang-alang, Paspalum, Axonopus)</strong>
+                <p><strong>PRIMA UP (Glifosat)</strong> - Blanket/terarah sesuai SF</p>
+              </article>
+              <article class="pill">
+                <strong>BERDAUN LEBAR (Asystasia, Borreria)</strong>
+                <p><strong>META PRIMA (Metsulfuron Methyl)</strong> - Lebih efisien saat muda</p>
+              </article>
+              <article class="pill">
+                <strong>BERKAYU/MERAMBAT (Kirinyuh, Mikania, Cissus repens)</strong>
+                <p><strong>KENLON (Triclopyr)</strong> - <strong>DIRECT SPRAY</strong> ke batang/sulur</p>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="span-4 card">
+          <div class="card-header">
+            <h3>NOZZLE vs VOLUME</h3>
+          </div>
+          <div class="card-body">
+            <table>
+              <thead>
+                <tr>
+                  <th>KONDISI</th>
+                  <th>VOLUME (L/Ha)</th>
+                  <th>ARAHAN</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Gulma muda-herba</td>
+                  <td>200 – 250</td>
+                  <td>Lebih terarah, cukup</td>
+                </tr>
+                <tr>
+                  <td>Campuran sedang-tebal</td>
+                  <td>250 – 300</td>
+                  <td>Coverage cukup</td>
+                </tr>
+                <tr>
+                  <td>Merambat/Berkayu/<em>Cissus</em></td>
+                  <td>250 – 320</td>
+                  <td><strong>Direct Spray</strong>, minimasi drift</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="note info">
+              <strong>INGAT :</strong>
+              <p>Nozzle aus = Dosis meleset. <strong>Ganti</strong> bila pola sudah tidak terkontrol.</p>
+            </div>
+          </div>
+        </div>
+        <div class="span-4 card">
+          <div class="card-header">
+            <h3>KEP EVOLUTION INTER 12 L - 4 ATURAN EMAS</h3>
+          </div>
+          <div class="card-body">
+            <div class="grid-list">
+              <article class="pill">
+                <strong>1. KALIBRASI</strong>
+                <p>Dapatkan L/Ha aktual -> Hitung <strong>Spray Factor</strong></p>
+              </article>
+              <article class="pill">
+                <strong>2. HITUNG PER TANGKI</strong>
+                <p>Takaran = (Dosis/Ha x SF) x 0,012</p>
+              </article>
+              <article class="pill">
+                <strong>3. RAWAT SETELAH PAKAI</strong>
+                <p>Bilas tangki, saluran, filter & nozzle <strong>WAJIB</strong></p>
+              </article>
+              <article class="pill">
+                <strong>4. CISSUS = POTONG + SEMPROT</strong>
+                <p>Fokus pangkal sulur dengan <strong>Kenlon</strong> terarah</p>
+              </article>
+            </div>
+            <div class="note">
+              <strong>PRINSIP :</strong>
+              <p><strong>BENAR BAHAN - BENAR DOSIS - BENAR CARA - BENAR PERAWATAN</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p><strong>HANDBOOK PENGENDALIAN GULMA DI PERKEBUNAN KELAPA SAWIT | KNAPSACK EVOLUTION INTER 12 L</strong></p>
+    <p>Disusun untuk penggunaan praktis di lapangan | Dilengkapi Ilustrasi Vektor SVG | Acuan Lapangan - Ikuti Label Resmi & Prosedur Perusahaan</p>
+    <p>© Panduan Semprot Kebun</p>
+  </footer>
+</body>
+
+</html>
